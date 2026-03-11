@@ -40,7 +40,7 @@ class TestBuildPipeline(unittest.TestCase):
         send_rich_event_mock = Mock()
         
         # Act
-        pipeline = build_pipeline(source, send_rich_event_mock)
+        pipeline = build_pipeline(source, send_rich_event_mock, None, None)
         pipeline.subscribe(
             on_next=lambda x: received_events.append(x),
             on_error=lambda e: self.fail(f"Pipeline error: {e}")
@@ -58,7 +58,7 @@ class TestMappingFunctions(unittest.TestCase):
         self.assertEqual(machines_mapping("UNS56A"), "UNSCRAMBLER")
         self.assertEqual(machines_mapping("WS964F"), "WASHER")
         self.assertEqual(machines_mapping("CPM784"), "CAPPING")
-
+    
     def test_properties_mapping(self):
         """Test that properties_mapping returns correct values"""
         self.assertEqual(properties_mapping("A7"), "LITERS")
