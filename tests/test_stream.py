@@ -46,8 +46,8 @@ class TestBuildPipeline(unittest.TestCase):
             on_error=lambda e: self.fail(f"Pipeline error: {e}")
         )
         
-        # TODO
-        pass
+        # Forzar fallo
+        self.fail("Test forzado para comprobar pipeline")
 
 
 class TestMappingFunctions(unittest.TestCase):
